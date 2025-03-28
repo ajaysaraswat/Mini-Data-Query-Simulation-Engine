@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 //     credentials: true,
 //   })
 // );
+app.get("/", (req, res) => {
+  res.json({ status: "welcome to the assignment" });
+});
 app.use(express.json());
 app.use(cookieParser());
 
