@@ -8,13 +8,13 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
+Middleware;
+app.use(
+  cors({
+    origin: "https://mini-data-query-simulation-engine.onrender.com",
+    credentials: true,
+  })
+);
 app.get("/", (req, res) => {
   res.json({ status: "welcome to the assignment" });
 });
