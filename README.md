@@ -38,7 +38,7 @@ npm start
 ```
 Server will run at `http://localhost:3000`
 
-## API Documentation
+## API Documentation(Postman req & res)
 
 ### Authentication Endpoints
 
@@ -86,7 +86,7 @@ POST /api/auth/login
 #### 1️⃣ Process Query
 ```http
 POST /api/query
-Authorization: Bearer <token>
+Authorization: Bearer <token>   //coming from jwt-login 
 ```
 📌 **Request:**
 ```json
@@ -96,22 +96,67 @@ Authorization: Bearer <token>
 ```
 📌 **Response:**
 ```json
-{"naturalQuery":"Show me all sales","sqlQuery":"SELECT * FROM sales","result":[{"id":1,"product":"Widget","amount":100,"date":"2024-01-01"},{"id":2,"product":"Gadget","amount":200,"date":"2024-01-02"},{"id":3,"product":"Device","amount":150,"date":"2024-01-03"}]}
+{
+    "naturalQuery": "Show me all sales",
+    "sqlQuery": "SELECT * FROM sales",
+    "result": [
+        {
+            "id": 1,
+            "product": "Widget",
+            "amount": 100,
+            "date": "2024-01-01"
+        },
+        {
+            "id": 2,
+            "product": "Gadget",
+            "amount": 200,
+            "date": "2024-01-02"
+        },
+        {
+            "id": 3,
+            "product": "Device",
+            "amount": 150,
+            "date": "2024-01-03"
+        }
+    ]
+}
 ```
+![image](https://github.com/user-attachments/assets/d0156744-b87b-40de-8f8b-c7494cf5eb3b)
 
 #### 2️⃣ Explain Query
 ```http
 POST /api/explain
-Authorization: Bearer <token>
+
 ```
+📌 **Request:**
+```json
+{
+    "query": "Show me all sales"
+}
+```
+
 📌 **Response:**
 ```json
 {
     "steps": [
-        { "step": 1, "description": "Natural language parsing" },
-        { "step": 2, "description": "Entity recognition" },
-        { "step": 3, "description": "SQL translation" }
+        {
+            "step": 1,
+            "description": "Natural language parsing"
+        },
+        {
+            "step": 2,
+            "description": "Entity recognition"
+        },
+        {
+            "step": 3,
+            "description": "SQL translation"
+        },
+        {
+            "step": 4,
+            "description": "Query optimization"
+        }
     ],
+    "originalQuery": "Show me all sales",
     "translatedSQL": "SELECT * FROM sales"
 }
 ```
@@ -119,7 +164,7 @@ Authorization: Bearer <token>
 #### 3️⃣ Validate Query
 ```http
 POST /api/validate
-Authorization: Bearer <token>
+
 ```
 📌 **Valid Request:**
 ```json
@@ -129,7 +174,10 @@ Authorization: Bearer <token>
 ```
 📌 **Valid Response:**
 ```json
-{ "valid": true }
+{
+    "isValid": true,
+    "feedback": "Query is valid"
+}
 ```
 
 📌 **Invalid Request:**
@@ -140,7 +188,10 @@ Authorization: Bearer <token>
 ```
 📌 **Invalid Response:**
 ```json
-{ "error": "Query contains unsupported operations" }
+{
+    "isValid": false,
+    "feedback": "Query contains unsupported operations"
+}
 ```
 
 ## Database Structure
@@ -160,6 +211,7 @@ The **mock database** is stored in memory and resets when the server restarts.
 ```
 
 ## Query Translation Logic
+
 ### Pattern Matching for Natural Queries → SQL
 ```js
 static patterns = {
@@ -233,9 +285,9 @@ res.cookie("token", token, {
 - Write **clean and modular code**
 
 ## How to Run the Database?
-This project **uses an in-memory mock database** that resets when the server restarts. **No external database is needed.**
+This project **uses an in-memory mock database** that resets when the server restarts. **No external database is used . we can used the sql or mongodb for user auth but now we limited to in-memory database.**
 
-If you want to **persist data**, consider using **SQLite or MongoDB.**
+
 
 ## 🚀 Conclusion
 This project **simulates AI-powered query processing** by converting **natural language to SQL.** It includes **authentication, error handling, and a mock database.**
