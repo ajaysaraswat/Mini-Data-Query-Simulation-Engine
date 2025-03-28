@@ -96,13 +96,7 @@ Authorization: Bearer <token>
 ```
 📌 **Response:**
 ```json
-{
-    "naturalQuery": "Show me all sales",
-    "sqlQuery": "SELECT * FROM sales",
-    "result": [
-        { "id": 1, "product": "Widget", "amount": 100, "date": "2024-01-01" }
-    ]
-}
+{"naturalQuery":"Show me all sales","sqlQuery":"SELECT * FROM sales","result":[{"id":1,"product":"Widget","amount":100,"date":"2024-01-01"},{"id":2,"product":"Gadget","amount":200,"date":"2024-01-02"},{"id":3,"product":"Device","amount":150,"date":"2024-01-03"}]}
 ```
 
 #### 2️⃣ Explain Query
