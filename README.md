@@ -12,7 +12,6 @@ The **AI Analytics Query System** is a backend service that simulates natural la
 
 ## System Architecture
 ```
-├── src/
 │   ├── controllers/     # Request handlers
 │   ├── services/        # Business logic
 │   ├── utils/           # Helper functions
@@ -247,8 +246,5 @@ If you want to **persist data**, consider using **SQLite or MongoDB.**
 ## 🚀 Conclusion
 This project **simulates AI-powered query processing** by converting **natural language to SQL.** It includes **authentication, error handling, and a mock database.**
 
-**🔗 Next Steps?**
-✅ Deploy to **Heroku/Render**
-✅ Improve **query translation logic**
-✅ Integrate a **real database**
+
 
