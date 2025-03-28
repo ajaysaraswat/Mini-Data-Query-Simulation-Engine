@@ -1,5 +1,9 @@
 # AI Analytics Query System
 
+#### Postman collection link - https://drive.google.com/file/d/17RtLANzZVqKxOAENcRwu4H5bI-rlYiuC/view?usp=sharing.
+
+#### deploy link - https://mini-data-query-simulation-engine.onrender.com/
+
 ## Introduction
 The **AI Analytics Query System** is a backend service that simulates natural language processing for database queries. It allows users to ask questions in plain English and receive structured data responses. The system includes authentication, query translation, and mock database interactions.
 
