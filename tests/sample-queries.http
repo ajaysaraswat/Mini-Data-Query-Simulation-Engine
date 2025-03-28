@@ -1,0 +1,68 @@
+### Get Authentication Token
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "password123"
+}
+
+### Query Endpoint Examples
+
+### 1. Basic Sales Query
+POST http://localhost:3000/api/query
+Authorization: Bearer your-token-here
+Content-Type: application/json
+
+{
+    "query": "Show me all sales"
+}
+
+### 2. Customer Count Query
+POST http://localhost:3000/api/query
+Authorization: Bearer your-token-here
+Content-Type: application/json
+
+{
+    "query": "How many customers do we have?"
+}
+
+### 3. Average Sales Query
+POST http://localhost:3000/api/query
+Authorization: Bearer your-token-here
+Content-Type: application/json
+
+{
+    "query": "What is the average sale amount?"
+}
+
+### Explain Endpoint Examples
+
+### 1. Explain Sales Query
+POST http://localhost:3000/api/explain
+Authorization: Bearer your-token-here
+Content-Type: application/json
+
+{
+    "query": "Show me all sales"
+}
+
+### Validate Endpoint Examples
+
+### 1. Validate Valid Query
+POST http://localhost:3000/api/validate
+Authorization: Bearer your-token-here
+Content-Type: application/json
+
+{
+    "query": "Show me all sales"
+}
+
+### 2. Validate Invalid Query
+POST http://localhost:3000/api/validate
+Authorization: Bearer your-token-here
+Content-Type: application/json
+
+{
+    "query": "DELETE everything"
+}
